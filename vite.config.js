@@ -1,18 +1,12 @@
-import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vueDevTools from 'vite-plugin-vue-devtools'
 
-// https://vite.dev/config/
+// Replace 'your-repo-name' with your actual GitHub repository name
 export default defineConfig({
-  plugins: [
-    vue(),
-    vueDevTools(),
-  ],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    },
-  },
+  plugins: [vue()],
+  base: '/vue_blog/', // IMPORTANT: Change this to your repo name
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets'
+  }
 })
